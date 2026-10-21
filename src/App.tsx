@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import './App.css'
 import InventoryDetail from './components/inventory/InventoryDetail'
+import { BrowserRouter, Route, Router, Routes } from 'react-router';
+import UsuariosPage from './components/usuarios/UsuariosPage';
+import InventoryPage from './components/inventory/InventoryPage';
+import MainLayout from './layout/MainLayout';
 
 function App() {
   const products = [
@@ -46,14 +50,14 @@ function App() {
   
   return (
     <>
-      <h1>{saludo}</h1>
-      <button onClick={() => changeSaludo()}>CHANGE SALUDO</button>
-      <p>--------------------------------</p>
-      <h1>{saludoHook}</h1>
-      <button onClick={() => changeSaludoHook()}>CHANGE SALUDO HOOK</button>
-      <p>------------------------</p>
-      {products.map(p=><InventoryDetail product={p} />)}
-      
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MainLayout/>}></Route>
+          <Route path='/usuarios' element={<UsuariosPage/>}></Route>
+          <Route path='/inventario' element={<InventoryPage/>}></Route>
+          <Route path='/' element={<App/>}></Route>
+        </Routes>
+      </BrowserRouter>
       
       {/* <InventoryDetail />
       <InventoryDetail /> */}
