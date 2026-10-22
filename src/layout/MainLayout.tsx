@@ -3,9 +3,6 @@ import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 
 function MainLayout() {
-
-
-
     return (
         <div>
             <Sidebar/>

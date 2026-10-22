@@ -12,7 +12,7 @@ function Sidebar() {
 
     const gestionNav: NavItem[] = [
         {label: 'Usuarios', icon: 'mat-dsd', to: '/usuarios'},
-        {label: 'Sucursales', icon: 'mat-dsd', to: '/sucursales'},
+        {label: 'Inventario', icon: 'mat-dsd', to: '/inventario'},
         {label: 'Clientes / Proveedores', icon: 'mat-dsd', to: '/clientes-proveedores'},
     ];
     const location = useLocation();
