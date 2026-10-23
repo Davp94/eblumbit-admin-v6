@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 function EmptyLayout () {
     return (
-        <div className="flex items-center justify-center">
+        <div className="min-h-screen w-full">
             <Outlet/>
         </div>
     )
