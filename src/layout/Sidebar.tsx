@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router";
+import { NavLink } from "react-router";
 
 interface NavItem {
     label: string;
@@ -11,11 +11,10 @@ interface NavItem {
 function Sidebar() {
 
     const gestionNav: NavItem[] = [
-        {label: 'Usuarios', icon: 'mat-dsd', to: '/usuarios'},
-        {label: 'Inventario', icon: 'mat-dsd', to: '/inventario'},
-        {label: 'Clientes / Proveedores', icon: 'mat-dsd', to: '/clientes-proveedores'},
+        {label: 'Usuarios', icon: 'mat-dsd', to: '/dashboard/usuarios'},
+        {label: 'Inventario', icon: 'mat-dsd', to: '/dashboard/inventario'},
+        {label: 'Clientes / Proveedores', icon: 'mat-dsd', to: '/dashboard/clientes-proveedores'},
     ];
-    const location = useLocation();
 
     return (
         <aside className="sidebar">

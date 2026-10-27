@@ -1,17 +1,19 @@
 import { useMutation } from '@tanstack/react-query';
 import { authService, type AuthRequest } from '../services/auth/AuthService';
+import { useAuthStore } from '../state-management/authStore';
+import { useNavigate } from 'react-router';
 export const useAuth = () => {
+    const setSession = useAuthStore((state) => state.setSession);
+    const navigate = useNavigate();
     return useMutation({
         mutationFn: (authRequest: AuthRequest) => authService.login(authRequest),
         onSuccess: (data) => {
-            localStorage.setItem('auth_token', data.accessToken);
-            localStorage.setItem('refresh_token', data.refreshToken);
-            localStorage.setItem('identifier', data.identifier+'');
-            localStorage.setItem('roles', data.roles.toString());
-            localStorage.setItem('permissions', data.permissions.toString());
+           setSession(data);
+           navigate('/dashboard', {replace: true})
         },
-        onError: (error: any) => {
-            console.log('LOGIN ERROR RESPONSE', error.response.data || error.message)
+        onError: (error) => {
+            const axiosError = error as {response?: {data?: unknown}; message: string};
+            console.log('LOGIN ERROR RESPONSE', axiosError.response?.data || axiosError.message)
         }
     });
 }
