@@ -5,7 +5,7 @@ import Topbar from "./Topbar";
 function MainLayout() {
     return (
         <div>
-            <Sidebar/>
+            {/* <Sidebar/> */}
             <div>
                 <Topbar/>
                 <main>

@@ -6,9 +6,9 @@ function ProtectedRoute() {
     const isAuthenticated = useAuthStore(selectIsAuthenticated);
     // const location = useLocation();
 
-    if(!isAuthenticated) {
-        return <Navigate to={'/login'} replace/>
-    }
+    // if(!isAuthenticated) {
+    //     return <Navigate to={'/login'} replace/>
+    // }
 
     return <Outlet />
 }
