@@ -5,7 +5,7 @@ import TextFieldComponent from "../../common/components/TextFieldComponent";
 
 interface UsuariosFormProps {
     usuario?: UsuariosResponse | null;
-    flagAction: number;
+    flagAction: string;
 }
 function UsuariosForm ({usuario, flagAction}: UsuariosFormProps) {
 
