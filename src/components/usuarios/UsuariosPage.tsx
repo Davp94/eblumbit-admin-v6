@@ -45,7 +45,7 @@ function UsuariosPage() {
   const [deleteTarget, setDeleteTarget] = useState<UsuariosResponse | null>(null);
   const [formDialog, setFormDialog] = useState<{
     usuario: UsuariosResponse | null;
-    flagAction: string} | null>(null);
+    flagAction: 'create' | 'edit'} | null>(null);
   const handleOpenCreate = () => {
     createMutation.reset();
     setDetailUsuario(null);
@@ -121,15 +121,16 @@ function UsuariosPage() {
           setDeleteTarget(usuario);
         }}
       />
-      {/* <UsuariosForm
+      <UsuariosForm
+        open={!!formDialog}
         flagAction={formDialog?.flagAction ?? "create"}
         usuario={formDialog?.usuario ?? null}
         loading={createMutation.isPending || updateMutation.isPending}
         error={error ? error?.message: ''}
         onClose={()=>setFormDialog(null)}
         onSubmit={handleSubmit}
-      /> */}
-      <UsuariosDetail />
+      />
+      <UsuariosDetail usuario={detailUsuario} onClose={() => setDetailUsuario(null)} />
       <DeleteUsuario 
         open={!!deleteTarget}
         usuario={deleteTarget}
