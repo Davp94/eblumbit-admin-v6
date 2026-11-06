@@ -28,9 +28,7 @@ function UsuariosForm ({
     const {
         control, 
         reset,
-        getValues,
         handleSubmit,
-        watch
     } = useForm<UsuariosResponse>({
         defaultValues: {
             id: 0,
@@ -44,19 +42,14 @@ function UsuariosForm ({
     const { data, error: errorHook, isLoading } = useRoles();
 
     useEffect(() => {
-        if(usuario) {
-            reset(usuario);
-        } else {
-            reset({
-                id: 0,
-                username: '',
-                nombres: '',
-                apellidos: '',
-                correo: '',
-                rolIds: []
-            });
-        }
-    }, []);
+        reset({
+            username: usuario?.username ?? '',
+            nombres: usuario?.nombres ?? '',
+            apellidos: usuario?.apellidos ?? '',
+            correo: usuario?.correo ?? '',
+            rolIds: usuario?.rolIds ?? []
+        })
+    }, [usuario, reset]);
 
     return(
         <>

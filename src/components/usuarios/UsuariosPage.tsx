@@ -12,35 +12,6 @@ function UsuariosPage() {
   const createMutation = useCreateUsuario();
   const updateMutation = useUpdateUsuario();
   const deleteMutation = useDeleteUsuario();
-  const [usuarios] = useState<UsuariosResponse[]>([
-    {
-      id: 1,
-      nombres: "usuario 1",
-      apellidos: "usuario 1 ap",
-      username: "usuario1",
-      correo: "test@test.com",
-      rolIds: [1, 2],
-      sucursalId: [1, 2],
-    },
-    {
-      id: 2,
-      nombres: "usuario 2",
-      apellidos: "usuario 2 ap",
-      username: "usuario2",
-      correo: "test2@test2.com",
-      rolIds: [1, 2],
-      sucursalId: [1, 2],
-    },
-    {
-      id: 3,
-      nombres: "usuario 3",
-      apellidos: "usuario 3 ap",
-      username: "usuario3",
-      correo: "test3@test3.com",
-      rolIds: [1, 2],
-      sucursalId: [1, 2],
-    },
-  ]);
   const [detailUsuario, setDetailUsuario] = useState<UsuariosResponse | null>(null);
   const [deleteTarget, setDeleteTarget] = useState<UsuariosResponse | null>(null);
   const [formDialog, setFormDialog] = useState<{
@@ -108,7 +79,7 @@ function UsuariosPage() {
         </Button>
       </Stack>
       <UsuariosTable
-        usuarios={usuarios}
+        usuarios={data ||[]}
         loading={isLoading}
         error={error?.message}
         deletingId={

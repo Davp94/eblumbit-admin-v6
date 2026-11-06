@@ -4,11 +4,11 @@ import { selectIsAuthenticated, useAuthStore } from "../state-management/authSto
 function ProtectedRoute() {
 
     const isAuthenticated = useAuthStore(selectIsAuthenticated);
-    // const location = useLocation();
+    const location = useLocation();
 
-    // if(!isAuthenticated) {
-    //     return <Navigate to={'/login'} replace/>
-    // }
+    if(!isAuthenticated) {
+        return <Navigate to={'/login'} replace/>
+    }
 
     return <Outlet />
 }

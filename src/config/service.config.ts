@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '../state-management/authStore';
 
 export const apiClient = axios.create({
-    baseURL: 'http://localhost:5070/api',
+    baseURL: 'http://localhost:5071/api',
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json'

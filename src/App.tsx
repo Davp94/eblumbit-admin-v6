@@ -9,6 +9,7 @@ import EmptyLayout from './layout/EmptyLayout';
 import Login from './components/auth/login';
 import PublicRoute from './routes/PublicRoute';
 import ProtectedRoute from './routes/ProtectedRoute';
+import ProfilePage from './components/usuarios/ProfilePage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route index element={<Navigate to={'/dashboard/usuarios'}/>}></Route>
               <Route path='/dashboard/inventario' element={<InventoryPage/>}></Route>
               <Route path='/dashboard/usuarios' element={<UsuariosPage/>}></Route>
+              <Route path='/dashboard/profile' element={<ProfilePage/>}></Route>
             </Route>
           </Route>
 

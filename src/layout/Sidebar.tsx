@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
-
+import './Sidebar.css';
 interface NavItem {
     label: string;
     icon: string;
