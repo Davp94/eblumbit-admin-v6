@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* @layer mui, utilities; */
+
+@theme {
+    --color-primary-main: #fb8c00;
+    --color-secondary-main: #afb42b;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
