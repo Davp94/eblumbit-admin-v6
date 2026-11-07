@@ -8,7 +8,19 @@ interface AuthState {
     roles: string[],
     permissions: string[],
     expiration: number | null;
-    setSession: (data: any) => void;
+    setSession: (data: {
+        accessToken: string;
+        refreshToken: string;
+        identifier: number;
+        roles: string[];
+        permissions: string[];
+        expiration: number;
+    }) => void;
+    updateTokens: (data: {
+        accessToken: string;
+        refreshToken: string;
+        expiration: number;
+    }) => void;
     clearSession: () => void;
 }
 
@@ -30,6 +42,12 @@ export const useAuthStore = create<AuthState>()(
                     permissions: data.permissions,
                     expiration: data.expiration
                 }),
+            updateTokens: (data) => 
+                set((state) => ({
+                    accessToken: data.accessToken,
+                    refreshToken: data.refreshToken,
+                    expiration: data.expiration ?? state.expiration
+                })),
             clearSession: () => 
                 set({
                     accessToken: null,

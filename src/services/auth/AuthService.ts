@@ -1,4 +1,4 @@
-import { apiClient } from "../../config/service.config";
+import { apiClient, refreshAuthToken } from "../../config/service.config";
 
 export interface AuthRequest {
     username: string;
@@ -19,5 +19,7 @@ export const authService = {
         const { data } = await apiClient.post<AuthResponse>('/auth/login', authRequest);
         return data;
     },
-    refreshToken: async() => {}
+    refreshToken: async(refreshToken: string): Promise<AuthResponse> => {
+        return refreshAuthToken(refreshToken);
+    }
 }
