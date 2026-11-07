@@ -12,6 +12,8 @@ function Sidebar() {
 
     const gestionNav: NavItem[] = [
         {label: 'Usuarios', icon: 'mat-dsd', to: '/dashboard/usuarios'},
+        {label: 'Roles', icon: 'mat-dsd', to: '/dashboard/roles'},
+        {label: 'Permisos', icon: 'mat-dsd', to: '/dashboard/permisos'},
         {label: 'Inventario', icon: 'mat-dsd', to: '/dashboard/inventario'},
         {label: 'Clientes / Proveedores', icon: 'mat-dsd', to: '/dashboard/clientes-proveedores'},
     ];
