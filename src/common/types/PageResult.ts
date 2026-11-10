@@ -1,0 +1,7 @@
+export interface PageResult<T> {
+    items: T[],
+    totalCount: number;
+    totalPages: number;
+    pageSize: number;
+    pageNumber: number;
+}
