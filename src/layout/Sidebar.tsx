@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router";
 import './Sidebar.css';
 interface NavItem {
@@ -15,6 +14,8 @@ function Sidebar() {
         {label: 'Roles', icon: 'mat-dsd', to: '/dashboard/roles'},
         {label: 'Permisos', icon: 'mat-dsd', to: '/dashboard/permisos'},
         {label: 'Inventario', icon: 'mat-dsd', to: '/dashboard/inventario'},
+        {label: 'Sucursales', icon: 'mat-dsd', to: '/dashboard/sucursales'},
+        {label: 'Almacenes', icon: 'mat-dsd', to: '/dashboard/almacenes'},
         {label: 'Clientes / Proveedores', icon: 'mat-dsd', to: '/dashboard/clientes-proveedores'},
     ];
 
