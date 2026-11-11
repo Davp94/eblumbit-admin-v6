@@ -7,6 +7,10 @@ export const almacenesService = {
         const { data } = await apiClient.get<AlmacenResponse[]>("/almacenes");
         return data;
     },
+    getAlmacenesBySucursal: async (sucursalId: number): Promise<AlmacenResponse[]> => {
+        const { data } = await apiClient.get<AlmacenResponse[]>(`/almacenes/${sucursalId}/sucursal`);
+        return data;
+    },
     create: async (almacen: AlmacenRequest): Promise<AlmacenResponse> => {
         const { data } = await apiClient.post<AlmacenResponse>("/almacenes", almacen);
         return data;

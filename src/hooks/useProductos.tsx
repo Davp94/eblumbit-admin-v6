@@ -5,6 +5,7 @@ import { productoService } from "../services/productos/ProductoService";
 export const useProductos = (queryParams: ProductoQueryParams) => {
     return useQuery({
         queryKey: ['productos', queryParams],
-        queryFn: () => productoService.getPoductosPaginacion(queryParams)
+        queryFn: () => productoService.getPoductosPaginacion(queryParams),
+        enabled: queryParams.almacenId !== undefined && queryParams.almacenId > 0
     })
 }

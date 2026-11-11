@@ -7,6 +7,12 @@ export const useAlmacenes = () => useQuery({
     queryFn: almacenesService.getAll,
 });
 
+export const useAlmacenesBySucursal = (sucursalId: number) => useQuery({
+    queryKey: ["almacenes", "sucursal", sucursalId],
+    queryFn: () => almacenesService.getAlmacenesBySucursal(sucursalId),
+    enabled: sucursalId > 0,
+});
+
 const useInvalidateAlmacenes = () => {
     const queryClient = useQueryClient();
     return () => queryClient.invalidateQueries({ queryKey: ["almacenes"] });
