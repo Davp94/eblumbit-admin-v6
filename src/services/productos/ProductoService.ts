@@ -24,7 +24,9 @@ export const productoService = {
         formData.append("estado", String(request.estado));
         formData.append("categoriaId", String(request.categoriaId));
         formData.append("imagen", request.imagen);
-        const { data } = await apiClient.post<ProductoResponse>("/productos", formData);
+        const { data } = await apiClient.post<ProductoResponse>("/productos", formData, 
+            {headers: {'Content-Type': 'multipart/form-data'}
+        });
         return data;
     },
 

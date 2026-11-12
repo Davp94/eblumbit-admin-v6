@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { useProductos } from "../../hooks/useProductos";
+import { useAddProductoAlmacen, useCreateProducto, useProductos } from "../../hooks/useProductos";
 import { Alert, Box, Button, FormControl, InputLabel, MenuItem, Select, Stack, TextField } from "@mui/material";
 import InventoryTable from "./InventoryTable";
 import { useSucursales } from "../../hooks/useSucursales";
 import { useAlmacenes, useAlmacenesBySucursal } from "../../hooks/useAlmacenes";
+import type { ProductoRequest } from "../../types/productos/ProductoRequest";
+import { create } from "axios";
+import ProductosForm from "./ProductosForm";
 
 function InventoryPage() {
     const [pageNumber, setPageNumber] = useState(1);
@@ -14,11 +17,30 @@ function InventoryPage() {
     const [selectedAlmacenId, setSelectedAlmacenId] = useState<number | "">("");
     const { data: sucursales, isLoading: isLoadingSucursales, error: sucursalesError} = useSucursales();
     const { data: sucursalAlmacenes, isLoading: isLoadingAlmacenes, error: almacenesError} = useAlmacenesBySucursal(selectedSucursalId || 0);
+    const [createFormOpen, setCreateFormOpen] = useState(false);
+    const [assignFormOpen, setAssignFormOpen] = useState(false);
+    const createProducto = useCreateProducto();
+    const addProductoAlmacen = useAddProductoAlmacen();
 
     useEffect(() => {
         const timeoutId = window.setTimeout(()=> setDebuncedSearch(search),300);
         return () => window.clearTimeout(timeoutId);
     },[search])
+
+    const handleCreateProducto = (producto: ProductoRequest) => {
+        createProducto.mutate(producto, {
+            onSuccess: () => setCreateFormOpen(false)
+        })
+    }
+
+    const handleAssignProducto = (productoId: number) => {
+        if(!selectedAlmacenId) return
+        addProductoAlmacen.mutate(
+            {productoId, almacenId: selectedAlmacenId },
+            {onSuccess: () => setAssignFormOpen(false)}
+        )
+    }
+
 
     const { data, isLoading, isError, error, refetch} = useProductos({pageNumber, pageSize, almacenId: selectedAlmacenId || undefined, search: debouncedSearch.trim() });
     return (
@@ -105,7 +127,7 @@ function InventoryPage() {
                     Seleccione una sucursal y un almacen para consultar el inventario
                 </Alert>
             )}
-          
+            <ProductosForm />
         </Box>
     );
 }
