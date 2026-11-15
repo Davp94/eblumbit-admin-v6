@@ -13,6 +13,7 @@ import ProtectedRoute from './routes/ProtectedRoute';
 import ProfilePage from './components/usuarios/ProfilePage';
 import SucursalesPage from './components/sucursales/SucursalesPage';
 import AlmacenesPage from './components/almacenes/AlmacenesPage';
+import ProveedoresPage from './components/proveedores/ProveedoresPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path='/dashboard/inventario' element={<InventoryPage/>}></Route>
               <Route path='/dashboard/sucursales' element={<SucursalesPage/>}></Route>
               <Route path='/dashboard/almacenes' element={<AlmacenesPage/>}></Route>
+              <Route path='/dashboard/proveedores' element={<ProveedoresPage/>}></Route>
               <Route path='/dashboard/usuarios' element={<UsuariosPage/>}></Route>
               <Route path='/dashboard/roles' element={<RolesPage/>}></Route>
               <Route path='/dashboard/permisos' element={<PermissionsPage/>}></Route>

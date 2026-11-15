@@ -16,7 +16,7 @@ function Sidebar() {
         {label: 'Inventario', icon: 'mat-dsd', to: '/dashboard/inventario'},
         {label: 'Sucursales', icon: 'mat-dsd', to: '/dashboard/sucursales'},
         {label: 'Almacenes', icon: 'mat-dsd', to: '/dashboard/almacenes'},
-        {label: 'Clientes / Proveedores', icon: 'mat-dsd', to: '/dashboard/clientes-proveedores'},
+        {label: 'Proveedores', icon: 'mat-dsd', to: '/dashboard/proveedores'},
     ];
 
     return (

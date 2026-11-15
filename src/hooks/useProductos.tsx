@@ -16,8 +16,8 @@ const useInvalidateProductos = () => {
     return () => queryClient.invalidateQueries({queryKey: ['productos']});
 }
 
-export const useBuscarProducto = (search: string) => {
-    const queryParams: ProductoQueryParams = {pageNumber: 1, pageSize: 20, search}
+export const useBuscarProducto = (search: string, almacenId?: number) => {
+    const queryParams: ProductoQueryParams = {pageNumber: 1, pageSize: 20, search, almacenId}
     return useQuery({
         queryKey: ['productos', queryParams],
         queryFn: () => productoService.getPoductosPaginacion(queryParams),
