@@ -74,7 +74,7 @@ function CompraDetalleRow({almacenId, value, canRemove, onChange, onRemove}: Com
                         onChange={(event) => onChange({cantidad: event.target.value})}
                     />
                     <TextField
-                        label="precio Unitario de compra"
+                        label="Precio Unitario de compra"
                         type="number"
                         required
                         value={value.precioUnitarioCompra}
