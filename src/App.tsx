@@ -14,6 +14,8 @@ import ProfilePage from './components/usuarios/ProfilePage';
 import SucursalesPage from './components/sucursales/SucursalesPage';
 import AlmacenesPage from './components/almacenes/AlmacenesPage';
 import ProveedoresPage from './components/proveedores/ProveedoresPage';
+import ComprasPage from './components/compras/ComprasPage';
+import ComprasFormPage from './components/compras/ComprasFormPage';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path='/dashboard' element={<MainLayout/>}>
               <Route index element={<Navigate to={'/dashboard/usuarios'}/>}></Route>
               <Route path='/dashboard/inventario' element={<InventoryPage/>}></Route>
+              <Route path='/dashboard/compras' element={<ComprasPage/>}></Route>
+              <Route path='/dashboard/compras/nueva/:almacenId' element={<ComprasFormPage/>}></Route>
               <Route path='/dashboard/sucursales' element={<SucursalesPage/>}></Route>
               <Route path='/dashboard/almacenes' element={<AlmacenesPage/>}></Route>
               <Route path='/dashboard/proveedores' element={<ProveedoresPage/>}></Route>

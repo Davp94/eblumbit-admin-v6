@@ -14,6 +14,7 @@ function Sidebar() {
         {label: 'Roles', icon: 'mat-dsd', to: '/dashboard/roles'},
         {label: 'Permisos', icon: 'mat-dsd', to: '/dashboard/permisos'},
         {label: 'Inventario', icon: 'mat-dsd', to: '/dashboard/inventario'},
+        {label: 'Compras', icon: 'mat-dsd', to: '/dashboard/compras'},
         {label: 'Sucursales', icon: 'mat-dsd', to: '/dashboard/sucursales'},
         {label: 'Almacenes', icon: 'mat-dsd', to: '/dashboard/almacenes'},
         {label: 'Proveedores', icon: 'mat-dsd', to: '/dashboard/proveedores'},

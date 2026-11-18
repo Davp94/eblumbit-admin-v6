@@ -22,8 +22,10 @@ import { useAlmacenesBySucursal } from "../../hooks/useAlmacenes";
 import type { ProductoRequest } from "../../types/productos/ProductoRequest";
 import ProductosForm from "./ProductosForm";
 import InventoryProductosForm from "./InventoryProductosForm";
+import { useNavigate } from "react-router";
 
 function InventoryPage() {
+  const navigate = useNavigate();
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [search, setSearch] = useState("");
@@ -100,6 +102,10 @@ function InventoryPage() {
               <Button variant="outlined" 
               onClick={() => {createProducto.reset(); setCreateFormOpen(true)}}>
                 Crear Producto
+              </Button>
+              <Button variant="outlined" disabled={!selectedAlmacenId}
+              onClick={() => navigate(`/dashboard/compras/nueva/${selectedAlmacenId}`)}>
+                Añadir Stock
               </Button>
               <Button variant="outlined" disabled={!selectedAlmacenId}
               onClick={() => {addProductoAlmacen.reset(); setAssignFormOpen(true)}}>Agregar al Almacen</Button>
